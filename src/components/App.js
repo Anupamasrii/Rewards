@@ -1,6 +1,6 @@
-import './App.css';
-import data from "./dataSet.json";
-import Transaction from './components/Transaction';
+import '../styles/App.css';
+import data from "../mockData/dataSet.json";
+import Transaction from './Transaction';
 
 const App = () => {
   const { customerProfiles } = data;
@@ -14,7 +14,7 @@ const App = () => {
           <th>Total Rewards</th>
           <th>lastThreeMonthsRewards</th>
         </tr>
-        {customerProfiles.map(customer => (<Transaction customer={customer} customerId={customer.customerId} />))}
+        {customerProfiles.map((customer, i) => <Transaction key={i} customer={customer} customerId={customer.customerId} />)}
       </table>   
     </div>
   );

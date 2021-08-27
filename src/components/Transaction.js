@@ -12,11 +12,29 @@ const Transaction = ({customerId, customer}) => {
     return (
         <>
           <tr>
-              <td>{customerId}</td>
-              <td>{listOfAllTransactions.map(item => <ul><RewardsPerPriceTransaction transactionid={item.transactionid} price={item.price} rewards={item.rewards} date={item.date} /></ul>)}</td>
-              <td>{getLastThreeTransaction.map(item => <ul><RewardsPerPriceTransaction transactionid={item.transactionid} price={item.price} rewards={item.rewards} date={item.date} /></ul>)}</td>
-              <td>{getTotalRewards}</td>
-              <td>{lastThreeMonthsRewards.map(reward => <p>{reward}</p>)}</td>
+              <td className="customer_id">{customerId}</td>
+              <td className="list_of_transactions_per_price">{listOfAllTransactions.map((item, i) => (
+                    <ul key={i}>
+                        <RewardsPerPriceTransaction
+                            transactionid={item.transactionid}
+                            price={item.price}
+                            rewards={item.rewards}
+                            date={item.date}
+                        />
+                    </ul>))}
+                </td>
+              <td className="get_three_months_transactions">{getLastThreeTransaction.map((item, i) => (
+                    <ul key={i}>
+                        <RewardsPerPriceTransaction 
+                            transactionid={item.transactionid}
+                            price={item.price} 
+                            rewards={item.rewards} 
+                            date={item.date} 
+                        />
+                    </ul>))}
+                </td>
+              <td className="get_total_rewards">{getTotalRewards}</td>
+              <td className="reward_per_month">{lastThreeMonthsRewards.map((reward, i) => <p key={i}>{reward}</p>)}</td>
           </tr>
         </>
     )

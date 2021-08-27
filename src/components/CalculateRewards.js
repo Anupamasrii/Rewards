@@ -33,7 +33,7 @@ export class TransactionList {
     rewardPerMonth() {
         let last3MonthRewardsInDesc = [];
         for(let i=0; i<3; i++) {
-            let filteredList = this.list.filter(trans => trans.transactionDate.getMonth() == (new Date).getMonth() - i );
+            let filteredList = this.list.filter(trans => trans.transactionDate.getMonth() === (new Date).getMonth() - i );
             last3MonthRewardsInDesc[i] = filteredList.reduce((acc,key)=>key.rewards+acc,0);
         }
         return last3MonthRewardsInDesc;
